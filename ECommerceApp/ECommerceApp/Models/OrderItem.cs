@@ -22,9 +22,11 @@ namespace ECommerceApp.Models
         public decimal UnitPrice { get; set; }
 
         [ForeignKey("OrderId")]
+        [Required]
         public Order Order { get; set; } = new Order();
 
         [ForeignKey("ProductId")]
+        [Required]
         public required Product Product { get; set; }
     }
 }

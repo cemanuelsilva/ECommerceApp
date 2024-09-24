@@ -18,7 +18,8 @@ namespace ECommerceApp.Models
         public decimal TotalAmount { get; set; }
 
         [ForeignKey("UserId")]
-        public User? User { get; set; }
+        [Required]
+        public User User { get; set; }
 
         public ICollection<OrderItem> OrderItems { get; set; } = [];
     }

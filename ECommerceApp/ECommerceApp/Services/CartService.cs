@@ -9,12 +9,16 @@ namespace ECommerceApp.Services
         public async Task<CartDto?> GetCartByIdAsync(int cartId)
         {
             var cart = await cartRepository.GetCartByIdAsync(cartId);
+            if (cart == null) { throw new Exception("Cart Not Found"); }
+
             return MapToDto(cart);
         }
 
         public async Task<CartDto?> GetCartByUserAsync(int userId)
         {
             var cart = await cartRepository.GetCartByUserAsync(userId);
+            if (cart == null) { throw new Exception("User Cart Not Found"); }
+
             return MapToDto(cart);
         }
 
